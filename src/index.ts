@@ -6,30 +6,21 @@
   https://opensource.org/licenses/MIT.
 */
 
-import {registerQuotaErrorCallback} from './registerQuotaErrorCallback.js';
-import * as _private from './_private.js';
-import {cacheNames} from './cacheNames.js';
-import {copyResponse} from './copyResponse.js';
-import {clientsClaim} from './clientsClaim.js';
-import {setCacheNameDetails} from './setCacheNameDetails.js';
-import {skipWaiting} from './skipWaiting.js';
-import './_version.js';
+import {copyWorkboxLibraries} from './lib/copy-workbox-libraries';
+import {getModuleURL} from './lib/cdn-utils';
+import {generateSW} from './generate-sw';
+import {getManifest} from './get-manifest';
+import {injectManifest} from './inject-manifest';
 
 /**
- * All of the Workbox service worker libraries use workbox-core for shared
- * code as well as setting default values that need to be shared (like cache
- * names).
- *
- * @module workbox-core
+ * @module workbox-build
  */
 export {
-  _private,
-  cacheNames,
-  clientsClaim,
-  copyResponse,
-  registerQuotaErrorCallback,
-  setCacheNameDetails,
-  skipWaiting,
+  copyWorkboxLibraries,
+  generateSW,
+  getManifest,
+  getModuleURL,
+  injectManifest,
 };
 
-export * from './types.js';
+export * from './types';
